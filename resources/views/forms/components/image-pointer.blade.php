@@ -48,9 +48,7 @@
                     bodyImage = image;
                 }
             );
-
-            stage.on('click', function (e)
-            {
+            const handler = (e) => {
                 var pointerPosition = stage.getPointerPosition();
                 var shape = e.target;
 
@@ -87,7 +85,9 @@
 
                 updateImageData();
                 $wire.set('{{ $getStatePath() }}', base64Img);
-            });
+            }
+            stage.on('click', handler);
+            stage.on('tap', handler);
 
             function updateImageData()
             {
