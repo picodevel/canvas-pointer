@@ -87,6 +87,7 @@
                 $wire.set('{{ $getStatePath() }}', base64Img);
             }
             stage.on('pointerdblclick', handler);
+            stage.preventDefault(false)
 
             function fitStageIntoParentContainer() {
                 let sceneWidth=@js($width);
