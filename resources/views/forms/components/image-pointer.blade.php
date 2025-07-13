@@ -46,6 +46,7 @@
                     layer.add(image);
                     layer.draw();
                     bodyImage = image;
+                    bodyImage.preventDefault(false);
                 }
             );
             const handler = (e) => {
@@ -86,8 +87,7 @@
                 updateImageData();
                 $wire.set('{{ $getStatePath() }}', base64Img);
             }
-            stage.on('pointerdblclick', handler);
-            stage.preventDefault(false)
+            stage.on('pointerclick', handler);
 
             function fitStageIntoParentContainer() {
                 let sceneWidth=@js($width);
