@@ -86,8 +86,7 @@
                 updateImageData();
                 $wire.set('{{ $getStatePath() }}', base64Img);
             }
-            stage.on('click', handler);
-            stage.on('tap', handler);
+            stage.on('click touchend', handler);
 
             function fitStageIntoParentContainer() {
                 let sceneWidth=@js($width);
@@ -109,8 +108,8 @@
                 stage.scale({ x: scale, y: scale });
             }
 
-            fitStageIntoParentContainer();
-            window.addEventListener('resize', fitStageIntoParentContainer);
+            {{-- fitStageIntoParentContainer();
+            window.addEventListener('resize', fitStageIntoParentContainer); --}}
 
             function updateImageData()
             {
