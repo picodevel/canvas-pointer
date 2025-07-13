@@ -86,7 +86,7 @@
                 updateImageData();
                 $wire.set('{{ $getStatePath() }}', base64Img);
             }
-            stage.on('click touchend', handler);
+            stage.on('pointerdblclick', handler);
 
             function fitStageIntoParentContainer() {
                 let sceneWidth=@js($width);
