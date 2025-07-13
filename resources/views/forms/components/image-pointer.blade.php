@@ -89,6 +89,29 @@
             stage.on('click', handler);
             stage.on('tap', handler);
 
+            function fitStageIntoParentContainer() {
+                let sceneWidth=@js($width);
+                let sceneHeight=@js($height);
+                const container = document.getElementById('container');
+
+                // Make the container take up the full width
+                container.style.width = '100%';
+
+                // Get current container width
+                const containerWidth = container.offsetWidth;
+
+                // Calculate scale based on virtual width vs actual width
+                const scale = containerWidth / sceneWidth;
+
+                // Set stage dimensions and scale
+                stage.width(sceneWidth * scale);
+                stage.height(sceneHeight * scale);
+                stage.scale({ x: scale, y: scale });
+            }
+
+            fitStageIntoParentContainer();
+            window.addEventListener('resize', fitStageIntoParentContainer);
+
             function updateImageData()
             {
                 base64Img = stage.toDataURL();
